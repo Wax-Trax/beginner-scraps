@@ -1,0 +1,83 @@
+line con 0
+logg sync
+exec-t 0 0
+
+hostname {{ host }}
+no ip domain-lookup
+ipv6 uni
+{%- if ldp_rid %}
+
+mpls ldp router-id {{ ldp_rid }} force
+{%- endif %}
+
+{%- if isis %}
+
+router isis
+ net {{ isis['net'] }}
+ is-type level-2-only
+{%- endif %}
+
+{%- for iface in interfaces %}
+
+interface {{ iface[0] }}
+ ip address {{ iface[1] }} {{ iface[2] }}
+ ipv6 enable
+ {%- if isis %}
+ {%- if iface[4] %}
+ ip router isis
+ {%- endif %}
+ {%- endif %}
+ {%- if iface[3] %}
+ mpls ip
+ {%- endif %}
+ duplex full
+ no shutdown
+{%- endfor %}
+
+{%- if ac_interfaces %}
+
+template type pseudowire PWTEMP
+ encapsulation mpls
+ sequencing both
+ control-word include
+ signaling protocol ldp
+
+{%- for pw in pseudowires %}
+
+interface pseudowire {{ pw[0] }}
+ description {{ pw[1] }}
+ source template type pseudowire PWTEMP
+ neighbor {{ pw[2] }} {{ pw[0] }}
+ exit
+
+l2vpn vfi context VPLS{{ pw[3] }}
+ vpn id {{ pw[3] }}
+ member pseudowire {{ pw[0] }}
+ l2protocol forward
+ exit
+
+bridge-domain {{ pw[3] }}
+ member vfi VPLS{{ pw[3] }}
+ exit
+
+{%- endfor %}
+
+{%- for ac in ac_interfaces %}
+
+bridge-domain {{ ac[1] }}
+ member {{ ac[0] }} service-instance {{ ac[1] }}
+ exit
+
+interface {{ ac[0] }}
+ no shutdown
+ service instance {{ ac[1] }} ethernet
+  encapsulation {{ ac[2] }}
+  l2protocol forward
+  exit
+ exit
+
+{%- endfor %}
+
+{%- endif %}
+
+end

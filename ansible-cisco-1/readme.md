@@ -1,0 +1,1 @@
+First run with Ansible. This playbook verifies if two conditions exist (does the device have a s0/0/0 interface, and if so, does it have "ip route-cache flow" configured). If s0/0/0 exists and "ip route-cache flow" does not exist, it is configured, and the running-config is saved.

@@ -1,0 +1,55 @@
+---
+- hosts: ios_routers
+  gather_facts: no
+  connection: local 
+
+  tasks:
+  - name: GET CREDENTIALS
+    include_vars: secrets.yaml
+
+  - name: DEFINE CONNECTION
+    set_fact:
+       connection:
+          authorize: yes
+          host: "{{ inventory_hostname }}"
+          username: "{{ creds['username'] }}"
+          password: "{{ creds['password'] }}"
+          auth_pass: "{{ creds['auth_pass'] }}"
+
+  - name: DOES s0/0/0 EXIST
+    ios_command:
+      provider: "{{ connection }}"
+      commands:
+        - show ip int br | inc Serial0/0/0
+    register: s000
+
+  - name: DOES s0/0/0 ip route-cache flow EXIST 
+    ios_command:
+      provider: "{{ connection }}"
+      commands:
+         - show run int Serial0/0/0 | inc ip route-cache flow
+    register: s000rc
+
+#  - debug: var=s000.stdout_lines
+
+  - name: CONFIGURE ROUTE-CACHE
+    when: s000.stdout[0].count("Serial0/0/0") > 0 and s000rc.stdout[0].count("ip route-cache flow") == 0
+    register: conf_rc
+    ios_config:
+      provider: "{{ connection }}"
+      parents: "interface s0/0/0"
+      lines:
+        - ip route-cache flow
+      match: exact
+
+  - name: SAVE IF CHANGED
+    when: "(conf_rc.changed == true)"
+    set_fact: configured=true
+
+  - name: SAVE CONFIG
+    when: "(configured is defined) and (configured == true)"
+    register: save_config
+    ios_command:
+      provider: "{{ connection }}"
+      commands:
+        - wr

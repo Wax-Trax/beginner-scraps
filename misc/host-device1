@@ -1,0 +1,92 @@
+#!/usr/bin/env python
+
+  #load netmiko
+from netmiko import ConnectHandler
+
+  #load time 
+from datetime import datetime
+
+  #for test ping and nslookup
+import subprocess
+
+  #perform the ping action and return true if host pings, false if it doesn't
+def ping_test(host):
+    try:
+        subprocess.check_output("ping -c 1 -W 1 "+host, shell=True)
+    except Exception, e:
+        return False
+    return True
+
+  #perform nslookup on the IP in attempt to resolve the hostname
+def nslookup_test(host):
+    try:
+        nslookup = subprocess.check_output("nslookup "+host,shell=True)
+        for data in nslookup:
+            data_line = nslookup.split("\n")
+        for line in data_line:
+            if "name =" in line:
+                templist = line.split("name =")
+                temphost = templist[1]
+                tempsplit = temphost.split(".")
+                dnshost = tempsplit[0]
+    except Exception, e:
+        return ""   #Return an empty string if there is no hostname
+    return dnshost   #Return the DNS hostname
+
+  #attempt to log into the device and grab the configured hostname
+def configured_hostname(host):
+    try:
+          #initiate connection
+        net_connect = ConnectHandler(device_type='cisco_ios', ip=host, username='user', password='pass')
+        hostname = net_connect.find_prompt() #get hostname
+        net_connect.disconnect() #close connection
+    except Exception, e:
+        return "Not a Cisco device or cannot login"
+    return "configured hostname is " + hostname
+
+
+  #intialize generic integer list
+range255 = range(255)
+  #copy the integer list
+ip_generic_range = range255[:]
+  #convert integer list to string
+i = 0
+for x in ip_generic_range:
+    ip_generic_range[i] = str(x)
+    i += 1
+  #create new lists with ip addresses
+tenonerange = ip_generic_range[:]
+  #build 10.1.x.1 list
+i = 0
+for x in tenonerange:
+    tenonerange[i] = "10.1." + ip_generic_range[i] + ".1"
+    i += 1
+
+  #combine lists
+ip_ranges = tenonerange
+
+  #The first ping may take a few seconds
+print "Preparing to ping hosts..."
+
+  #Create/open output file for appending
+outfile = open('output.txt','a')
+
+  #Display and write the results of ping + hostname
+for ip in ip_ranges:
+
+    testping = ping_test(ip) #Call ping_test function for each IP
+    dnshost = nslookup_test(ip) #Call nslookup_test function for each IP
+    hostname = configured_hostname(ip) #Call configured_hostname function for each IP
+    time = "%s" % (datetime.now()) #Generate current date/time for each iteration
+
+    if testping == True:
+        print ip + dnshost + " pings, " + hostname  #Write results to screen 
+        result = time + " " + ip + dnshost + " pings, " + hostname + "\n"  
+        outfile.write(result)  #Write results to file
+    else:
+        print ip + dnshost + " does not ping"  #Write results to screen
+        noresult = time + " " + ip + dnshost + " does not ping at this time\n"
+        outfile.write(noresult)  #Write results to file
+
+  #Close output file
+outfile.close()

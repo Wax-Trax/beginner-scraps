@@ -1,0 +1,376 @@
+---
+P1:
+  port: 32769
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.0.1', '255.255.255.255', False, True]
+    - ['e0/0', '10.0.91.1', '255.255.255.254', True, True]
+    - ['e0/1', '10.1.15.0', '255.255.255.254', True, True]
+    - ['e0/2', '10.0.18.0', '255.255.255.254', True, True]
+    - ['e0/3', '10.0.12.0', '255.255.255.254', True, True]
+    - ['e1/0', '10.0.13.0', '255.255.255.254', True, True]
+    - ['e1/1', '10.0.17.0', '255.255.255.254', True, True]
+    - ['e1/3', '10.1.12.0', '255.255.255.254', True, True]
+    - ['e1/2', '10.1.11.0', '255.255.255.254', True, True]
+  isis:
+    net: 49.0001.0000.0000.0001.00
+
+P2:
+  port: 32770
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.0.2', '255.255.255.255', False, True]
+    - ['e0/0', '10.0.92.1', '255.255.255.254', True, True]
+    - ['e0/1', '10.1.22.0', '255.255.255.254', True, True]
+    - ['e0/2', '10.0.12.1', '255.255.255.254', True, True]
+    - ['e0/3', '10.0.23.0', '255.255.255.254', True, True]
+    - ['e1/0', '10.1.25.0', '255.255.255.254', True, True]
+  isis:
+    net: 49.0001.0000.0000.0002.00
+
+P3:
+  port: 32771
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.0.3', '255.255.255.255', False, True]
+    - ['g1', '10.0.93.1', '255.255.255.254', True, True]
+    - ['g2', '10.1.23.1', '255.255.255.254', True, True]
+    - ['g3', '10.0.34.0', '255.255.255.254', True, True]
+    - ['g4', '10.0.13.1', '255.255.255.254', True, True]
+    - ['g5', '10.0.35.0', '255.255.255.254', True, True]
+    - ['g6', '10.1.32.0', '255.255.255.254', True, True]
+    - ['g7', '10.1.33.0', '255.255.255.254', True, True]
+  isis:
+    net: 49.0001.0000.0000.0003.00
+
+P4:
+  port: 32772
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.0.4', '255.255.255.255', False, True]
+    - ['e0/0', '10.0.94.1', '255.255.255.254', True, True]
+    - ['e0/1', '10.1.43.0', '255.255.255.254', True, True]
+    - ['e0/2', '10.0.34.1', '255.255.255.254', True, True]
+    - ['e0/3', '10.0.45.0', '255.255.255.254', True, True]
+    - ['e1/0', '10.1.46.0', '255.255.255.254', True, True]
+  isis:
+    net: 49.0001.0000.0000.0004.00
+
+P5:
+  port: 32773
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.0.5', '255.255.255.255', False, True]
+    - ['e0/0', '10.0.95.1', '255.255.255.254', True, True]
+    - ['e0/1', '10.0.45.1', '255.255.255.254', True, True]
+    - ['e0/2', '10.0.56.0', '255.255.255.254', True, True]
+    - ['e0/3', '10.0.35.1', '255.255.255.254', True, True]
+    - ['e1/0', '10.0.57.0', '255.255.255.254', True, True]
+    - ['e1/1', '10.1.53.0', '255.255.255.254', True, True]
+    - ['e1/2', '10.1.54.0', '255.255.255.254', True, True]
+    - ['e1/3', '10.1.56.0', '255.255.255.254', True, True]
+  isis:
+    net: 49.0001.0000.0000.0005.00
+
+P6:
+  port: 32774
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.0.6', '255.255.255.255', False, True]
+    - ['e0/0', '10.0.96.1', '255.255.255.254', True, True]
+    - ['e0/1', '10.1.64.0', '255.255.255.254', True, True]
+    - ['e0/2', '10.0.56.1', '255.255.255.254', True, True]
+    - ['e0/3', '10.0.67.0', '255.255.255.254', True, True]
+    - ['e1/0', '10.1.66.0', '255.255.255.254', True, True]
+  isis:
+    net: 49.0001.0000.0000.0006.00
+
+P7:
+  port: 32775
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.0.7', '255.255.255.255', False, True]
+    - ['g1', '10.0.97.1', '255.255.255.254', True, True]
+    - ['g2', '10.0.67.1', '255.255.255.254', True, True]
+    - ['g3', '10.0.78.0', '255.255.255.254', True, True]
+    - ['g4', '10.0.57.1', '255.255.255.254', True, True]
+    - ['g5', '10.0.17.1', '255.255.255.254', True, True]
+    - ['g6', '10.1.71.0', '255.255.255.254', True, True]
+    - ['g7', '10.1.74.0', '255.255.255.254', True, True]
+  isis:
+    net: 49.0001.0000.0000.0007.00
+
+P8:
+  port: 32776
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.0.8', '255.255.255.255', False, True]
+    - ['e0/0', '10.0.98.1', '255.255.255.254', True, True]
+    - ['e0/1', '10.1.81.0', '255.255.255.254', True, True]
+    - ['e0/2', '10.0.18.1', '255.255.255.254', True, True]
+    - ['e0/3', '10.0.78.1', '255.255.255.254', True, True]
+    - ['e1/0', '10.1.85.0', '255.255.255.254', True, True]
+  isis:
+    net: 49.0001.0000.0000.0008.00
+
+P9:
+  port: 32777
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.0.9', '255.255.255.255', False, True]
+    - ['e0/0', '10.0.91.0', '255.255.255.254', True, True]
+    - ['e0/1', '10.0.92.0', '255.255.255.254', True, True]
+    - ['e0/2', '10.0.93.0', '255.255.255.254', True, True]
+    - ['e0/3', '10.0.94.0', '255.255.255.254', True, True]
+    - ['e1/0', '10.0.95.0', '255.255.255.254', True, True]
+    - ['e1/1', '10.0.96.0', '255.255.255.254', True, True]
+    - ['e1/2', '10.0.97.0', '255.255.255.254', True, True]
+    - ['e1/3', '10.0.98.0', '255.255.255.254', True, True]
+  isis:
+    net: 49.0001.0000.0000.0009.00
+
+PE1:
+  port: 32780
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.1.1', '255.255.255.255', False, True]
+    - ['g1', '10.1.81.1', '255.255.255.254', True, True]
+    - ['g6', '10.1.71.1', '255.255.255.254', True, True]
+    - ['g5', '10.1.11.1', '255.255.255.254', True, True]
+  isis:
+    net: 49.0001.0000.0000.0010.00
+  pseudowires:
+    # Interface, Description, Targeted LDP Neighbor, Service Instance
+    - ['112', 'SI10 PE1 - PE2', '10.255.1.2', '10']
+    - ['113', 'SI10 PE1 - PE3', '10.255.1.3', '10']
+    - ['114', 'SI10 PE1 - PE4', '10.255.1.4', '10']
+    - ['212', 'SI20 PE1 - PE2', '10.255.1.2', '20']
+    - ['213', 'SI20 PE1 - PE3', '10.255.1.3', '20']
+    - ['214', 'SI20 PE1 - PE4', '10.255.1.4', '20']
+    - ['312', 'SI30 PE1 - PE2', '10.255.1.2', '30']
+    - ['313', 'SI30 PE1 - PE3', '10.255.1.3', '30']
+    - ['314', 'SI30 PE1 - PE4', '10.255.1.4', '30']
+  ac_interfaces:
+    # Interface, Service Instance, Encapsulation
+    - ['g2', '10', 'default']
+    - ['g3', '20', 'default']
+    - ['g4', '30', 'default']
+
+PE2:
+  port: 32788
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.1.2', '255.255.255.255', False, True]
+    - ['g1', '10.1.22.1', '255.255.255.254', True, True]
+    - ['g5', '10.1.12.1', '255.255.255.254', True, True]
+    - ['g6', '10.1.32.1', '255.255.255.254', True, True]
+  isis:
+    net: 49.0001.0000.0000.0020.00
+  pseudowires:
+    # Interface, Description, Targeted LDP Neighbor, Service Instance
+    - ['112', 'SI10 PE2 - PE1', '10.255.1.1', '10']
+    - ['113', 'SI10 PE2 - PE3', '10.255.1.3', '10']
+    - ['114', 'SI10 PE2 - PE4', '10.255.1.4', '10']
+    - ['212', 'SI20 PE2 - PE1', '10.255.1.1', '20']
+    - ['213', 'SI20 PE2 - PE3', '10.255.1.3', '20']
+    - ['214', 'SI20 PE2 - PE4', '10.255.1.4', '20']
+    - ['312', 'SI30 PE2 - PE1', '10.255.1.1', '30']
+    - ['313', 'SI30 PE2 - PE3', '10.255.1.3', '30']
+    - ['314', 'SI30 PE2 - PE4', '10.255.1.4', '30']
+  ac_interfaces:
+    # Interface, Service Instance, Encapsulation
+    - ['g2', '10', 'default']
+    - ['g3', '20', 'default']
+    - ['g4', '30', 'default']
+
+PE3:
+  port: 32795
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.1.3', '255.255.255.255', False, True]
+    - ['g1', '10.1.43.1', '255.255.255.254', True, True]
+    - ['g5', '10.1.33.1', '255.255.255.254', True, True]
+    - ['g6', '10.1.53.1', '255.255.255.254', True, True]
+  isis:
+    net: 49.0001.0000.0000.0030.00
+  pseudowires:
+    # Interface, Description, Targeted LDP Neighbor, Service Instance
+    - ['112', 'SI10 PE3 - PE2', '10.255.1.2', '10']
+    - ['113', 'SI10 PE3 - PE1', '10.255.1.1', '10']
+    - ['114', 'SI10 PE3 - PE4', '10.255.1.4', '10']
+    - ['212', 'SI20 PE3 - PE2', '10.255.1.2', '20']
+    - ['213', 'SI20 PE3 - PE1', '10.255.1.1', '20']
+    - ['214', 'SI20 PE3 - PE4', '10.255.1.4', '20']
+    - ['312', 'SI30 PE3 - PE2', '10.255.1.2', '30']
+    - ['313', 'SI30 PE3 - PE1', '10.255.1.1', '30']
+    - ['314', 'SI30 PE3 - PE4', '10.255.1.4', '30']
+  ac_interfaces:
+    # Interface, Service Instance, Encapsulation
+    - ['g2', '10', 'default']
+    - ['g3', '20', 'default']
+    - ['g4', '30', 'default']
+
+PE4:
+  port: 32793
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.1.4', '255.255.255.255', False, True]
+    - ['g1', '10.1.64.1', '255.255.255.254', True, True]
+    - ['g5', '10.1.54.1', '255.255.255.254', True, True]
+    - ['g6', '10.1.74.1', '255.255.255.254', True, True]
+  isis:
+    net: 49.0001.0000.0000.0040.00
+  pseudowires:
+    # Interface, Description, Targeted LDP Neighbor, Service Instance
+    - ['112', 'SI10 PE4 - PE2', '10.255.1.2', '10']
+    - ['113', 'SI10 PE4 - PE3', '10.255.1.3', '10']
+    - ['114', 'SI10 PE4 - PE1', '10.255.1.1', '10']
+    - ['212', 'SI20 PE4 - PE2', '10.255.1.2', '20']
+    - ['213', 'SI20 PE4 - PE3', '10.255.1.3', '20']
+    - ['214', 'SI20 PE4 - PE1', '10.255.1.1', '20']
+    - ['312', 'SI30 PE4 - PE2', '10.255.1.2', '30']
+    - ['313', 'SI30 PE4 - PE3', '10.255.1.3', '30']
+    - ['314', 'SI30 PE4 - PE1', '10.255.1.1', '30']
+  ac_interfaces:
+    # Interface, Service Instance, Encapsulation
+    - ['g2', '10', 'default']
+    - ['g3', '20', 'default']
+    - ['g4', '30', 'default']
+
+PE5:
+  port: 32778
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.1.5', '255.255.255.255', False, True]
+    - ['e0/0', '10.1.15.1', '255.255.255.254', True, True]
+    - ['e0/1', '10.2.15.1', '255.255.255.254', False, False]
+    - ['e0/2', '10.1.85.1', '255.255.255.254', True, True]
+    - ['e0/3', '10.1.25.1', '255.255.255.254', True, True]
+  isis:
+    net: 49.0001.0000.0000.0050.00
+
+PE6:
+  port: 32797
+  ldp_rid: lo1
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.1.6', '255.255.255.255', False, True]
+    - ['e0/0', '10.1.56.1', '255.255.255.254', True, True]
+    - ['e0/1', '10.1.66.1', '255.255.255.254', True, True]
+    - ['e0/2', '10.1.46.1', '255.255.255.254', True, True]
+    - ['e0/3', '10.2.26.1', '255.255.255.254', False, False]
+  isis:
+    net: 49.0001.0000.0000.0060.00
+
+Internet1:
+  port: 32779
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.2.1', '255.255.255.255', False, False]
+    - ['e0/0', '10.2.15.0', '255.255.255.254', False, False]
+
+Internet2:
+  port: 32796
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.2.2', '255.255.255.255', False, False]
+    - ['e0/0', '10.2.26.0', '255.255.255.254', False, False]
+
+CE1a:
+  port: 32794
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.10.1', '255.255.255.255', False, False]
+    - ['e0/0', '10.10.10.1', '255.255.255.0', False, False]
+
+CE1b:
+  port: 32789
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.10.2', '255.255.255.255', False, False]
+    - ['e0/0', '10.20.20.1', '255.255.255.0', False, False]
+
+CE1c:
+  port: 32790
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.10.3', '255.255.255.255', False, False]
+    - ['e0/0', '10.30.30.1', '255.255.255.0', False, False]
+
+CE2a:
+  port: 32781
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.20.1', '255.255.255.255', False, False]
+    - ['e0/0', '10.10.10.2', '255.255.255.0', False, False]
+
+CE2b:
+  port: 32782
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.20.2', '255.255.255.255', False, False]
+    - ['e0/0', '10.20.20.2', '255.255.255.0', False, False]
+
+CE2c:
+  port: 32783
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.20.3', '255.255.255.255', False, False]
+    - ['e0/0', '10.30.30.2', '255.255.255.0', False, False]
+
+CE3a:
+  port: 32787
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.30.1', '255.255.255.255', False, False]
+    - ['e0/0', '10.10.10.3', '255.255.255.0', False, False]
+
+CE3b:
+  port: 32785
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.30.2', '255.255.255.255', False, False]
+    - ['e0/0', '10.20.20.3', '255.255.255.0', False, False]
+
+CE3c:
+  port: 32786
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.30.3', '255.255.255.255', False, False]
+    - ['e0/0', '10.30.30.3', '255.255.255.0', False, False]
+
+CE4a:
+  port: 32792
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.40.1', '255.255.255.255', False, False]
+    - ['e0/0', '10.10.10.4', '255.255.255.0', False, False]
+
+CE4b:
+  port: 32784
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.40.2', '255.255.255.255', False, False]
+    - ['e0/0', '10.20.20.4', '255.255.255.0', False, False]
+
+CE4c:
+  port: 32791
+  interfaces:
+    # Interface, IP, Mask, MPLS Enabled, IS-IS Enabled?
+    - ['lo1', '10.255.40.3', '255.255.255.255', False, False]
+    - ['e0/0', '10.30.30.4', '255.255.255.0', False, False]
+
