@@ -3,7 +3,8 @@ Scraps of code for the GitHub & Python beginner that I am :-)
 
 Entries below in reverse chronological order:
 
-* **2019-02-38 VeloCloud:** Multi-threaded Python script I wrote to interrogate VeloCloud Edge devices through the VeloCloud Orchestrator API
+* **2019-02-38 VeloCloud:** Multi-threaded Python script I wrote to interrogate VeloCloud Edge devices through the VeloCloud Orchestrator API:
+https://neckercube.com/index.php/2019/02/28/using-python-with-the-velocloud-orchestrator/
 
 * **2018-09-26 ios-l2vpn-vpls1:** Files that accompany ny blog post on creating an automated simple Cisco VPLS lab: https://neckercube.com/index.php/2018/09/26/easy-cisco-vpls-l2vpn-automated-lab/
 
