@@ -1,0 +1,12 @@
+{
+  "Profiles": [
+    {% for node in nodes %}
+    {
+      "Tags" : ["{{ lab }}-{{ node[1] }}"],
+      "Initial Text" : "telnet {{ eve }} {{ node[2] }}",
+      "Name" : "{{ node[0] }}",
+      "Guid": "{{ node[3] }}"
+    },
+    {%- endfor %}
+  ]
+}
