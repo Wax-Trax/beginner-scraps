@@ -35,6 +35,6 @@ This script is written using the default EVE-NG Pro username and password.
 Modify all values as necessary for your environment. This script could be
 a good starting point for you to dig deeper into automating things with
 EVE-NG. The API has some [limited documentation]
-[https://www.eve-ng.net/index.php/documentation/howtos/how-to-eve-ng-api/]
+(https://www.eve-ng.net/index.php/documentation/howtos/how-to-eve-ng-api/)
 available, but you may need to reverse-engineer a couple things yourself
 using the web browser developer tools.
