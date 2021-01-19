@@ -21,11 +21,12 @@ nodes = json.loads(session.get(nodesurl, verify=False).content)
 
 nodelist = []
 for node in nodes['data'].keys():
-    name = nodes['data'][node]['name']               # node name
-    type = nodes['data'][node]['template']           # template: xrv, vios, etc
-    tport = nodes['data'][node]['url'].split(':')[2] # dynamic telnet port
-    uuid = nodes['data'][node]['uuid']               # node uuid
-    nodelist.append((name, type, tport, uuid))
+    if nodes['data'][node]['url'].split(':')[2] != '0':  # running nodes only
+        name = nodes['data'][node]['name']               # node name
+        type = nodes['data'][node]['template']           # template: xrv, vios, etc
+        tport = nodes['data'][node]['url'].split(':')[2] # dynamic telnet port
+        uuid = nodes['data'][node]['uuid']               # node uuid
+        nodelist.append((name, type, tport, uuid))
 
 template = j2_env.get_template('iterm2.j2')
 render = template.render(nodes=sorted(nodelist), lab=LAB, eve=EVE_SERVER)
